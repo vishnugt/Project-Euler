@@ -1,10 +1,12 @@
+/*input
+42
+*/
 #include <cmath>
 #include <cstdio>
 #include <vector>
 #include <iostream>
 #include <algorithm>
 using namespace std;
-
 int isprime(int a)
 {
     if(a<2)
@@ -26,7 +28,7 @@ int main()
  {
     int input, highn=0, higha=0, highb=0, a, b;
     cin>>input;
-    cout<<(int)sqrt(input);
+    //cout<<(int)sqrt(input);
     for (a = -1 * input; a <= input; a++) 
     {   
         for(b = 2; b <= input; b++)

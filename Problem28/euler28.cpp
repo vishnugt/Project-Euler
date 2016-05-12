@@ -1,3 +1,7 @@
+/*input
+1
+5
+*/
 #include <cmath>
 #include <cstdio>
 #include <vector>
@@ -16,7 +20,7 @@ int main() {
         sum1 = (1+8*n*(n+1)*(2*n+1)/3)%mmod;
         sum2 = (2*(n)*(n+1))%mmod;
         sum3 = (4*n)%mmod;
-        cout<<(( sum1 + sum2)%mmod + sum3)%mmod<<endl;
+        cout<<((( sum1 + sum2)%mmod +( sum3 + sum2)%mmod +( sum1 + sum3)%mmod)/2)%mmod<<endl;
     }
     return 0;
     
