@@ -1,12 +1,10 @@
-/*input
-42
-*/
 #include <cmath>
 #include <cstdio>
 #include <vector>
 #include <iostream>
 #include <algorithm>
 using namespace std;
+
 int isprime(int a)
 {
     if(a<2)
