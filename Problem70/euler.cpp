@@ -24,9 +24,7 @@ int isprime(long long int a)
         return 1;
     }
 }
-
-
-
+x
 int hasSameDigits (long long int num1, long long int num2) {
     int digits[10];
     int i;
@@ -59,9 +57,9 @@ int main()
     //cout<<testcase;
     long long int testcase_sqrt =  sqrt(testcase);
     //cout<<testcase_sqrt<<" "<<testcase;
-    for(int i=0; i<testcase_sqrt; i++)
+    for(int i=0; i<testcase_sqrt + 1000; i++)
     {
-        for(int j=i+1; j < testcase_sqrt;j++)
+        for(int j=i+1; j < testcase_sqrt+1000;j++)
         {
             if(isprime(i)==1 && isprime(j)==1)
             {
