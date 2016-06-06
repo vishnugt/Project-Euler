@@ -47,7 +47,7 @@ int main()
     for(i=11;i<n;i++)
     {
         k=0;
-        if(prime(i) && prime(i%10))
+        if(prime(i))
         {
             
             reversed_number = reverse_number(i);
