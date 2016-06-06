@@ -12,21 +12,23 @@ def is_prime(n):
     return True 
 
 def rotate(i, j):
-    for k in range(1, j+2):
-        num1 = i / (10**k)
-        num2 = i % (10**(k))
-        num = (num2*(10**k)) + num1
-        return num
+    temp1 = str(i)[:j]
+    temp2 = str(i)[j:]
+    temp = temp2 + temp1
+    return int(temp)
 
 sum = 0
 for i in range(int(raw_input())):
+    flag = 0
     if is_prime(i):
         if len(str(i)) == 1:
             sum = sum + i
         else:
             for j in range(len(str(i))-1):
-                temp = (rotate(i, j))
+                temp = (rotate(i, j+1))
                 if is_prime(temp):
-                    sum = sum + i
+                    flag = flag + 1
+            if flag == len(str(i)) -1:
+                sum = sum + i
 
 print sum
