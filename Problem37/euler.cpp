@@ -41,7 +41,7 @@ int reverse_number(long long n)
 
 int main() 
 {
-    long long n,i,p,sum=0, temp1, temp2, reversed_number;
+    long long n,i,p,sum=0, temp1, temp2;
     int k,d,j;
     cin>>n;
     for(i=11;i<n;i++)
@@ -49,10 +49,8 @@ int main()
         k=0;
         if(prime(i))
         {
-            
-            reversed_number = reverse_number(i);
             temp1 = i;
-            temp2 = reversed_number;
+            temp2 = reverse_number(i);
             k=1;
             d=noofdigits(i);
             for(j=1;j<d;j++)
