@@ -31,7 +31,8 @@ int noofdigits(long long n)
 int reverse_number(long long n) 
 {
     long long reverse = 0;
-    while(n != 0) {
+    while(n != 0)
+    {
         int remainder = n%10;
         reverse = reverse*10 + remainder;
         n/=10;
