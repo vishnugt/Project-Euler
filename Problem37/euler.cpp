@@ -58,17 +58,14 @@ int main()
                 if(  !(prime(temp1/10) &&  prime(reverse_number(temp2/10))) )
                     k=0;
                 temp1 = temp1/10;
-                temp2 = temp2/10;
-                
+                temp2 = temp2/10;       
             }
         }
         if(k==1)
         {
             sum = sum + i;
-        }
-            
+        }           
     }
     cout<<sum<<endl;
     return 0;
 }
-
