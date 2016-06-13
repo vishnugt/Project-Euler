@@ -11,20 +11,19 @@ def is_prime(n):
         f +=6
     return True  
 
-list = []
+dir = {}
+sum = 0
 
-list.append(2)
 for k in range(3, 1000001, 2):
     if is_prime(k):
-        list.append(k)
+        sum = sum + k
+        dir[k] = sum
 
 for i in range(int(raw_input())):
     n = int(raw_input())
     i, sum =0, 0
-    while(True):
-        if list[i] < n+1:
-            sum = sum + list[i]
-            i = i + 1
-        else:
+    for z in range(n, 0, -1):
+        if is_prime(z):
+            small_prime = z
             break
-    print sum
+    print dir[small_prime] + 2
