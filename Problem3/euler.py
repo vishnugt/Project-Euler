@@ -1,25 +1,11 @@
-def isprime(n):
-    if(n==2 or n==3):
-        return True
-    else:
-        for i in range(3, n, 2):
-            if(n%i==0):
-                return False
-        return True
-
-def highest_prime(n):
-    highest = 2
-    for i in range(n, 1, -1):
-        if(n%i == 0):
-            if(isprime(i)):
-                if(highest<i):
-                    highest = i
-    return highest
-    
-    
-for i in range(int(raw_input())):
+for t in range(int(raw_input())):
     n = int(raw_input())
-    print highest_prime(n)
-
-
-    
+    i = 2
+    high = 1
+    while(i*i <= n):
+        while(n%i == 0 ):
+            n = n/i
+            high = i
+        i += 1
+    if n > 1 : print n
+    else: print high
