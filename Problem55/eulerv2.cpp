@@ -3,74 +3,81 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
-#include <map>
-
 using namespace std;
-typedef unsigned long ul;
-
-bool is_palindrome(ul num)
-{
-    ul numcopy = num;
-    ul rev = 0, dig = 0;
-    while (num > 0)
+typedef unsigned long long ull;
+ull nos[100000];
+ull acount[100000];
+ull reverse(ull n)
     {
-        dig = num % 10;
-        rev = rev * 10 + dig;
-        num = num / 10;
-     }
-     if (numcopy == rev)
-        return true;
-    else
-        return false;
-}
-
-ul reverse_num(ul num)
-{
-    ul rev = 0, dig = 0;
-    while (num > 0)
-    {
-        dig = num % 10;
-        rev = rev * 10 + dig;
-        num = num / 10;
-     }
+    ull rev=0;
+        while(n!=0)
+        {
+        rev=rev*10+n%10;
+            n=n/10;
+        }
     return rev;
 }
-
-int main() {
-    map<ul, ul> mymap;
-    map<ul,ul>::iterator it = mymap.begin();
-    ul n;
-    cin>>n;
-    ul temp = 0;
-    for (ul i = 1; i <= n; i++)
-        for (int j = 0; j < 60; j++)
-        {
-        if(j==0)
-            temp = i;
-        if(is_palindrome(temp))
-        {
-            it = mymap.find(temp);
-            if(it == mymap.end())
-            {
-                mymap.insert(pair<ul, ul>(temp, 1));
-            }
-            else
-            {
-                mymap[temp]++; 
-            }
-            break;
-        }
-        temp = temp + reverse_num(temp);
-    }
-    ul greatest_num = 0, greatest_count = 0;
-    for(it=mymap.begin(); it!=mymap.end(); it++)
+ull palindrome(ull n)
     {
-        if(it->second >= greatest_count)
+    ull rev=reverse(n);
+    if(rev==n)
+        return 1;
+    else
+        return 0;
+}
+void maxPalindrome(ull n)
+    {
+    static int i=0;
+    int k = 0;
+    if(i==0)
         {
-            greatest_count = it -> second;
-            greatest_num = it -> first;
+        nos[i]=n;
+        acount[i] = 1;
+        i++;
         }
-    }
-    cout<<greatest_num<<" "<<greatest_count;
+    else
+        {
+        for(ull j=0;j<i;j++)
+            {
+            if(nos[j]==n)
+                {
+                k=1;
+                acount[j]++;
+                }
+           }
+        if(k==0)
+            {
+            nos[i]=n;
+            acount[i] = 1;
+            i++;
+            }
+        }
+}
+int main() {
+    ull n,i,j,sum,k,palin,max=0;
+        cin>>n;
+    for(i=1;i<=n;i++)
+        {
+         for(j=1;j<=60;j++)
+            {
+            if(j==1)sum=i;
+            k=palindrome(sum);
+            if(k)
+                {
+                maxPalindrome(sum);
+                break;
+               }
+            sum=sum+reverse(sum);
+           }
+       }
+    for(i=0;i<1000;i++)
+        {
+        if(acount[i]>max)
+            {
+            palin=nos[i];
+            max=acount[i];
+           }
+       }
+    cout<<palin<<" "<<max<<endl;
     return 0;
 }
