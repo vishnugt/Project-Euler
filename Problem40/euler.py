@@ -1,3 +1,4 @@
+#python 2 - power of xrange!
 def digit_at(n):
     digits = 1
     n = n - 1
@@ -9,10 +10,10 @@ def digit_at(n):
     num = n / digits + pow(10, digits-1)
     return int(str(num)[n % digits])
 
-for t in range(int(input())):
+for t in xrange(int(input())):
     ans = 1
     list_inputs = []
-    list_inputs = list(map(int, input().split(" ")))
-    for i in range(7):
+    list_inputs = list(map(int, raw_input().split()))
+    for i in xrange(7):
         ans = ans * digit_at(list_inputs[i])
     print(ans)
